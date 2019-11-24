@@ -13,9 +13,9 @@ public class SMSNotificationService implements INotificationService
 	
 	
 	@Override
-	public void sendMsg(String toUser,Integer status)
+	public void sendMsg(EmailUser fromUser,String toUser,Integer status)
 	{
-		System.out.println("SMS sent to user"+toUser);
+		System.out.println("SMS sent to user"+fromUser);
 		
 	}
 

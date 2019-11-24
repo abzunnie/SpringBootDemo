@@ -13,6 +13,9 @@ public class MyController {
 	
 	@Value("${username}")
 	private String username;
+
+	@Autowired
+	EmailUser getadmin;
 	
 	@Autowired
 	INotificationService emailNotificationService;
@@ -29,7 +32,7 @@ public class MyController {
 	@GetMapping("/user")
 	public User getUser()
 	{
-		SMSNotificationService.sendMsg("Admin",200);
+		SMSNotificationService.sendMsg(getadmin,"Admin",200);
 		return user;
 	}
 	

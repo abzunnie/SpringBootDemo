@@ -2,6 +2,6 @@ package com.example.demo;
 
 public interface INotificationService {
 
-	void sendMsg(String toUser, Integer status);
+	void sendMsg(EmailUser fromUser, String toUser, Integer status);
 
 }

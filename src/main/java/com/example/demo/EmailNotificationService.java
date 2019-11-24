@@ -14,9 +14,9 @@ public class EmailNotificationService implements INotificationService
 	private String port;
 	
 	@Override
-	public void sendMsg(String toUser,Integer status)
+	public void sendMsg(EmailUser fromUser,String toUser,Integer status)
 	{
-		System.out.println("Email sent to user"+toUser);
+		System.out.println("Email sent to user"+fromUser);
 		
 	}
 
