@@ -4,18 +4,19 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
-public class NotificationService 
+public class EmailNotificationService implements INotificationService 
 {
-	@Value("${username}")
-	private String email;
+	//@Value("${email.username}")
+	private String[] email;
 	@Value("${email.password}")
 	private String password;
-	@Value("${port}")
+	@Value("${email.port}")
 	private String port;
-		
+	
+	@Override
 	public void sendMsg(String toUser,Integer status)
 	{
-		System.out.println("Message sent to user"+toUser);
+		System.out.println("Email sent to user"+toUser);
 		
 	}
 

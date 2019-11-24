@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,8 +11,14 @@ public class MyController {
 
 	User user = new User("Abhishek",29,"ab@test.com");
 	
+	@Value("${username}")
+	private String username;
+	
 	@Autowired
-	NotificationService notificationService;
+	INotificationService emailNotificationService;
+	
+	@Autowired
+	INotificationService SMSNotificationService;
 	
 	@GetMapping("/test")
 	public String getGreetings()
@@ -21,7 +29,9 @@ public class MyController {
 	@GetMapping("/user")
 	public User getUser()
 	{
-		notificationService.sendMsg("Admin",200);
+		SMSNotificationService.sendMsg("Admin",200);
 		return user;
 	}
+	
+	
 }
